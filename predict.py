@@ -19,9 +19,18 @@ LORA_WEIGHTS_MAPPING = {
     "3D": "artificialguybr/3DRedmond-3DRenderStyle-3DRenderAF.safetensors",
     "Emoji": "fofr/emoji.safetensors",
     "Video game": "artificialguybr/PS1Redmond-PS1Game-Playstation1Graphics.safetensors",
+    "Video Game 2": "artificialguybr/XboxAvatarRedmond.safetensors",
     "Pixels": "artificialguybr/PixelArtRedmond-Lite64.safetensors",
     "Clay": "artificialguybr/ClayAnimationRedm.safetensors",
-    "Toy": "artificialguybr/ToyRedmond-FnkRedmAF.safetensors",
+
+    "Sticker": "artificialguybr/StickersRedmond.safetensors",
+    "Line art": "artificialguybr/LineAniRedmondV2-Lineart-LineAniAF.safetensors",
+    "Cute cartoon": "artificialguybr/CuteCartoonRedmond-CuteCartoon-CuteCartoonAF.safetensors",
+    "Coloring book": "artificialguybr/ColoringBookRedmond-ColoringBook-ColoringBookAF.safetensors",
+    "Studio Ghibli": "artificialguybr/StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors",
+    "Film Grain": "artificialguybr/FilmGrainRedmond-FilmGrain-FilmGrainAF.safetensors",
+    "Doodle": "artificialguybr/DoodleRedmond-Doodle-DoodleRedm.safetensors",
+    "Crochet": "artificialguybr/AmiguramiRedmond-Crochet-Amigurumi.safetensors",
 }
 
 LORA_TYPES = list(LORA_WEIGHTS_MAPPING.keys())
@@ -149,6 +158,14 @@ class Predictor(BasePredictor):
             "Pixels": f"Pixel Art, PixArFK, {prompt}",
             "Clay": f"Clay Animation, Clay, {prompt}",
             "Toy": f"FnkRedmAF, {prompt}, toy, miniature",
+            "Sticker": f"Stickers, {prompt}",
+            "Line art": f"Line Art, {prompt}",
+            "Cute cartoon": f"Cute Cartoon, {prompt}",
+            "Coloring book": f"Coloring Book, {prompt}",
+            "Studio Ghibli": f"Studio Ghibli, {prompt}",
+            "Film Grain": f"Film Grain, {prompt}",
+            "Doodle": f"Doodle, {prompt}",
+            "Crochet": f"Crochet, {prompt}",
         }
         return style_prompts[style]
 
@@ -165,6 +182,14 @@ class Predictor(BasePredictor):
             "Pixels": "photo, photography, ",
             "Clay": "",
             "Toy": "",
+            "Sticker": "photo, photography, ",
+            "Line art": "photo, photography, ",
+            "Cute cartoon": "photo, photography, ",
+            "Coloring book": "photo, photography, colorful",
+            "Studio Ghibli": "realistic, photo, photography, ",
+            "Film Grain": "",
+            "Doodle": "",
+            "Crochet": "",
         }
 
         return f"{specifics[style]}{start_base_negative}{negative_prompt}{end_base_negative}"
